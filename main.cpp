@@ -63,14 +63,14 @@ int main(int argc, char** argv){
     }
     delete[] fun_str_buf;
 
-    //MuparserFun fun(fun_str); // read f using muparser, but I get an error when compile
+    MuparserFun f(fun_str); // read f using muparser, but I get an error when compile
 
     std::function<double(double&, double&)> fun=f;  // instead, I use std::function
     Jacobi Jacobi_solver(n, fun);                   
     Jacobi_solver.solve_parallel();                 // mpi parallel function
     
     if (rank == 0){
-        //MuparserFun ex_fun(ex_fun_str);
+        MuparserFun ex_f(ex_fun_str);
         std::function<double(double&, double&)> ex_fun=ex_f;
         std::cout<<"test error: "<<Jacobi_solver.test(ex_fun)<<std::endl; // error between my result and the exact solution
         std::cout<<"error: "<<Jacobi_solver.get_error()<<std::endl;       // error between my result and the result in last iteration

@@ -1,0 +1,3 @@
+- you should put the tolerances in the data file, it does not add too much complexity to the code
+
+- muparser did not work because you did not link the library. See the Makefile.

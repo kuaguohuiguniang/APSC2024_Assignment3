@@ -3,7 +3,7 @@ CXXFLAGS ?=
 CPPFLAGS ?= -fopenmp -I./muparser/include -I./json/include
 
 LDFLAGS ?= -L./muparser/lib
-LIBS    ?= 
+LIBS    ?= -lmuparser 
 
 EXEC = main
 
